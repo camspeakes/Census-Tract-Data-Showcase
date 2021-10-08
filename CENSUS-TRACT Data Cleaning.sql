@@ -46,7 +46,7 @@ INSERT INTO #breakout(col, part, pos)
 DECLARE @sql nvarchar(max), 
 		@columnlist nvarchar(max)
 
--- Generate Columlist for dynamic pivot
+-- Generate column list for a dynamic pivot
 SELECT @columnlist = COALESCE(@columnlist + N',[' + CONVERT(nvarchar(max),pos) + ']', N'[' + CONVERT(nvarchar(max),pos) + ']')
 FROM #breakout br
 WHERE br.col = (SELECT TOP (1) col 
